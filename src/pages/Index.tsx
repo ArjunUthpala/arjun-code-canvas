@@ -2,13 +2,21 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import Header from "@/components/Header";
-import TerminalIntro from "@/components/TerminalIntro";
 import SkillsSection from "@/components/SkillsSection";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import ProjectsSection from "@/components/ProjectsSection";
 import EducationSection from "@/components/EducationSection";
 import AchievementsBlock from "@/components/AchievementsBlock";
 import ContactDetails from "@/components/ContactDetails";
+import BashBlock from "@/components/BashBlock";
+
+// The 4 about points, separated for clarity
+const bashBlocks = [
+  "Skilled and self-motivated Software Engineer with nearly 3 years of experience in designing and developing robust PHP Laravel-based back-end services and server-side logic. Proficient in Vue.js for dynamic front-end interfaces and Flutter for cross-platform mobile applications. Currently leading two teams of junior developers at Parallax Technologies (Pvt) Ltd, delivering high-quality, user-centric software solutions.",
+  "Experienced in integrating third-party APIs, conducting performance optimization, and ensuring responsive design across web and mobile platforms. Strong in software debugging and producing clean, maintainable code with proper documentation.",
+  "Demonstrates strong collaboration and teamwork, with proven adaptability in fast-paced environments. Recognized for attention to detail, effective time management, and problem-solving. Actively involved in code reviews, mentoring, and technical hiring processes.",
+  "Currently expanding expertise in DevOps practices and prompt engineering to strengthen automation of developments, scalability, and AI-driven development workflows."
+];
 
 const Index = () => {
   return (
@@ -36,18 +44,28 @@ const Index = () => {
             {/* Contact details at top */}
             <ContactDetails />
           </div>
-          {/* Hero Section */}
-          <section className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-8 pt-4 pb-12 md:pt-10 md:pb-4 px-4">
-            {/* REMOVED: Avatar/Profile Picture */}
-            <div className="flex-1 flex flex-col items-center md:items-start md:pl-6 w-full">
-              <div className="flex justify-center w-full">
-                <TerminalIntro />
-              </div>
-            </div>
-          </section>
+          {/* 1st BashBlock after contact details */}
+          <div className="flex justify-center w-full">
+            <BashBlock>{bashBlocks[0]}</BashBlock>
+          </div>
+          {/* Skills Section */}
           <SkillsSection />
+          {/* 2nd BashBlock after skills */}
+          <div className="flex justify-center w-full">
+            <BashBlock>{bashBlocks[1]}</BashBlock>
+          </div>
+          {/* Experience */}
           <ExperienceTimeline />
+          {/* 3rd BashBlock after experience */}
+          <div className="flex justify-center w-full">
+            <BashBlock>{bashBlocks[2]}</BashBlock>
+          </div>
+          {/* Projects */}
           <ProjectsSection />
+          {/* 4th BashBlock after projects */}
+          <div className="flex justify-center w-full">
+            <BashBlock>{bashBlocks[3]}</BashBlock>
+          </div>
           <EducationSection />
           <AchievementsBlock />
           {/* Footer */}
@@ -61,4 +79,3 @@ const Index = () => {
 };
 
 export default Index;
-
