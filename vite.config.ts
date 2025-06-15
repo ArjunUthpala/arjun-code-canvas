@@ -10,7 +10,7 @@ import { componentTagger } from "lovable-tagger";
 // If you use "https://arjunuthpala.github.io/project-portfolio/", use "/project-portfolio/".
 
 export default defineConfig(({ mode }) => ({
-  base: "/",
+  base: "/arjun-code-canvas/",
   server: {
     host: "::",
     port: 8080,
@@ -26,3 +26,4 @@ export default defineConfig(({ mode }) => ({
     },
   },
 }));
+
