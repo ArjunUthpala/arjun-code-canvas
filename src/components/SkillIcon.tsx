@@ -15,8 +15,8 @@ import {
   Cog,
   Users,
   Zap,
-  Postcard,
   BookText,
+  Send, // Use Send icon for Postman
 } from "lucide-react";
 
 type SkillIconProps = {
@@ -30,7 +30,7 @@ const iconMap: Record<string, React.ReactNode> = {
   Github: <Github size={15} className="inline mr-1 align-[-2px]" />,
   "Github Actions": <GitBranch size={15} className="inline mr-1 align-[-2px]" />,
   Jenkins: <Hammer size={15} className="inline mr-1 align-[-2px]" />,
-  Postman: <Postcard size={15} className="inline mr-1 align-[-2px]" />,
+  Postman: <Send size={15} className="inline mr-1 align-[-2px]" />,
   dbForge: <Database size={15} className="inline mr-1 align-[-2px]" />,
   DBeaver: <Database size={15} className="inline mr-1 align-[-2px]" />,
   Figma: <Figma size={15} className="inline mr-1 align-[-2px]" />,
