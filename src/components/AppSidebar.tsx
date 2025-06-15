@@ -26,13 +26,10 @@ export function AppSidebar() {
   );
 
   useEffect(() => {
-    // Listen for hash changes
     const onHashChange = () => {
       setCurrentHash(window.location.hash || "#about");
     };
     window.addEventListener("hashchange", onHashChange);
-
-    // Set initial hash in case there's a delay
     setCurrentHash(window.location.hash || "#about");
 
     return () => {
@@ -46,7 +43,7 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupLabel>
             <span className="flex items-center gap-2">
-              <Folder className="w-4 h-4" /> File Explorer
+              <Folder className="w-4 h-4" /> Profile Explorer
             </span>
           </SidebarGroupLabel>
           <SidebarGroupContent>
