@@ -1,3 +1,4 @@
+
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import Header from "@/components/Header";
@@ -7,7 +8,8 @@ import ExperienceTimeline from "@/components/ExperienceTimeline";
 import ProjectsSection from "@/components/ProjectsSection";
 import EducationSection from "@/components/EducationSection";
 import AchievementsBlock from "@/components/AchievementsBlock";
-import ContactSection from "@/components/ContactSection";
+-import ContactSection from "@/components/ContactSection";
++import ContactDetails from "@/components/ContactDetails";
 
 const Index = () => {
   return (
@@ -32,6 +34,8 @@ const Index = () => {
             <span className="text-center text-secondary text-lg font-mono">
               Software Engineer
             </span>
++            {/* Contact details at top */}
++            <ContactDetails />
           </div>
           {/* Hero Section */}
           <section className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-8 pt-4 pb-12 md:pt-10 md:pb-4 px-4">
@@ -45,7 +49,7 @@ const Index = () => {
           <ProjectsSection />
           <EducationSection />
           <AchievementsBlock />
-          <ContactSection />
+-          <ContactSection />
           {/* Footer */}
           <footer className="py-6 text-center text-md text-secondary font-mono">
             Built with <span className="text-accent">React</span> + <span className="text-accent">Tailwind CSS</span> · &copy; {new Date().getFullYear()} Arjun Uthpala

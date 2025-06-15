@@ -59,7 +59,77 @@ const skills = {
   ]
 };
 
-const prettyJson = JSON.stringify(skills, null, 2);
+// Color mapping for each group
+const skillColor: Record<string, string> = {
+  "Soft Skills": "text-sky-300",
+  "Hard Skills": "text-rose-300",
+  "Frameworks": "text-yellow-300",
+  "AI": "text-green-300",
+  "Cloud Services": "text-purple-300",
+  "Tools": "text-orange-300",
+  "Database": "text-fuchsia-300",
+};
+
+function renderColorJson(obj: any, indent = 0) {
+  const indentStr = "  ".repeat(indent);
+  if (Array.isArray(obj)) {
+    return (
+      <>
+        {"["}
+        {obj.map((v, i) => (
+          <div key={i}>
+            {indentStr + "  "}
+            <span>{`"`}</span>
+            <span className="text-secondary">{v}</span>
+            <span>{`"`}</span>
+            {i < obj.length - 1 ? <span>{","}</span> : null}
+          </div>
+        ))}
+        {indentStr + "]"}
+      </>
+    );
+  } else if (typeof obj === "object" && obj) {
+    // color each array according to parent key
+    return (
+      <>
+        {"{"}
+        {Object.entries(obj).map(([key, val], idx, arr) => (
+          <div key={key} className="relative">
+            <span style={{ paddingLeft: `${indent * 2}ch` }}></span>
+            <span className="text-accent">"</span>
+            <span className="text-accent">{key}</span>
+            <span className="text-accent">"</span>
+            <span className="text-secondary">: </span>
+            <span>
+              {Array.isArray(val) ? (
+                // Use color for this skill group
+                <span className={skillColor[key] || "text-secondary"}>
+                  [
+                  {val.map((v, i) => (
+                    <span key={v} className="whitespace-nowrap">
+                      <span>"</span>
+                      {v}
+                      <span>"</span>
+                      {i < val.length - 1 ? <span>, </span> : null}
+                    </span>
+                  ))}
+                  ]
+                </span>
+              ) : (
+                // If nested object, recurse
+                renderColorJson(val, indent + 1)
+              )}
+            </span>
+            {idx < arr.length - 1 ? <span className="text-secondary">,</span> : null}
+          </div>
+        ))}
+        {"}"}
+      </>
+    );
+  }
+  // Fallback for primitives
+  return <span>{JSON.stringify(obj)}</span>;
+}
 
 const SkillsSection = () => {
   return (
@@ -69,7 +139,7 @@ const SkillsSection = () => {
       </h2>
       <div className="bg-terminal border border-[#222] rounded-lg shadow-lg p-6 md:p-8">
         <pre className="text-[14px] md:text-[15px] font-mono text-secondary bg-[#16191c] rounded-md p-4 whitespace-pre overflow-x-auto">
-{prettyJson}
+          {renderColorJson(skills)}
         </pre>
       </div>
     </section>
