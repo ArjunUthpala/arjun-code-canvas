@@ -14,7 +14,12 @@ const BashBlock: React.FC<BashBlockProps> = ({ children }) => {
   }, []);
 
   return (
-    <div className="font-mono bg-terminal rounded-lg p-6 shadow-lg border border-[#222] w-full md:w-[48rem] min-h-[88px] animate-fade-in mx-auto mb-4">
+    <div
+      className="font-mono bg-terminal rounded-lg p-6 shadow-lg border-2 border-white w-full md:w-[48rem] min-h-[88px] animate-fade-in mx-auto mb-4 transition-transform duration-200 hover:scale-[1.022] hover:shadow-[0_0_24px_2px_rgba(255,255,255,0.16)] hover:border-[#fff]"
+      style={{
+        boxShadow: "0 6px 30px 0 #0002, 0 0 0 3px #fff0",
+      }}
+    >
       <div className="mb-2 flex items-center gap-2">
         <span className="w-3 h-3 rounded-full bg-[#ff5555]" />
         <span className="w-3 h-3 rounded-full bg-[#fdc700]" />
