@@ -1,26 +1,5 @@
+
 import React from "react";
-
-// Vibrant color for brackets/paratheses
-const bracketColor = {
-  curly: "text-[#47eaff]",
-  square: "text-[#feec56]",
-  colon: "text-[#fe47b7]",
-  comma: "text-[#58ffe2]",
-  quote: "text-[#e1ecff]",
-};
-
-const skillColor: Record<string, string> = {
-  "Soft Skills": "text-[#00ffd0]",
-  "Hard Skills": "text-[#ff12af]",
-  "Frameworks": "text-[#ffe820]",
-  "AI": "text-[#3cff44]",
-  "Cloud Services": "text-[#b289fa]",
-  "Tools": "text-[#ff9100]",
-  "Database": "text-[#fe47b7]",
-  // fallback
-  "_array": "text-[#05d4f9]",
-};
-
 import SkillRow from "./SkillRow";
 
 const skills = {
@@ -82,13 +61,14 @@ const skills = {
 };
 
 const SkillsSection = () => {
+  const skillEntries = Object.entries(skills);
   return (
     <section id="skills" className="my-7 md:my-12 w-full max-w-3xl mx-auto">
       <h2 className="text-xl md:text-2xl font-bold text-accent font-mono mb-4 flex items-center justify-center gap-2 text-center">
         <span>// Skills</span>
       </h2>
-      <div className="w-full flex flex-col gap-0">
-        {Object.entries(skills).map(([group, arr]) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10">
+        {skillEntries.map(([group, arr]) => (
           <SkillRow key={group} group={group} skills={arr} />
         ))}
       </div>
