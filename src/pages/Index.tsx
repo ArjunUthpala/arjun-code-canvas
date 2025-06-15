@@ -1,6 +1,4 @@
 
-// Main landing page for Arjun Uthpala Portfolio
-
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import Header from "@/components/Header";
@@ -12,10 +10,6 @@ import ProjectsSection from "@/components/ProjectsSection";
 import EducationSection from "@/components/EducationSection";
 import AchievementsBlock from "@/components/AchievementsBlock";
 import ContactSection from "@/components/ContactSection";
-
-// Use an Unsplash placeholder as avatar for now
-const avatarUrl =
-  "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=facearea&w=320&h=320&facepad=2&q=80&sat=-100"; // gray-style
 
 const Index = () => {
   return (
@@ -43,17 +37,8 @@ const Index = () => {
           </div>
           {/* Hero Section */}
           <section className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-8 pt-4 pb-12 md:pt-10 md:pb-4 px-4">
-            {/* Avatar */}
-            <div className="flex justify-center md:justify-start items-center w-full md:w-auto">
-              <div className="rounded-full border-4 border-accent overflow-hidden shadow-xl w-36 h-36 md:w-52 md:h-52 grayscale">
-                <img
-                  src={avatarUrl}
-                  alt="Arjun Uthpala Portrait"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            </div>
-            <div className="flex-1 flex flex-col items-center md:items-start md:pl-6">
+            {/* REMOVED: Avatar/Profile Picture */}
+            <div className="flex-1 flex flex-col items-center md:items-start md:pl-6 w-full">
               <TerminalIntro />
             </div>
           </section>
