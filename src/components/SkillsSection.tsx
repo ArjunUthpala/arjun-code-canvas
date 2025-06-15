@@ -102,7 +102,7 @@ function renderTile(key: string, arr: string[]) {
   return (
     <div
       key={key}
-      className="bg-terminal rounded-lg border border-[#222] shadow-lg px-5 py-6 mb-4 flex-1 min-w-[210px] max-w-[380px] mx-auto animate-fade-in transition hover:scale-[1.025]"
+      className="bg-terminal rounded-lg border border-[#222] shadow-lg px-5 py-6 mb-4 min-w-[210px] max-w-[380px] w-full animate-fade-in transition hover:scale-[1.025]"
       style={{
         minHeight: '194px',
         margin: "8px"
@@ -132,7 +132,7 @@ const SkillsSection = () => {
         <span>// Skills</span>
       </h2>
       <div className="w-full">
-        <div className="flex flex-wrap justify-center gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
           {Object.entries(skills).map(([key, arr]) =>
             renderTile(key, arr)
           )}
