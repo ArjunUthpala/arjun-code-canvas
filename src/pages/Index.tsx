@@ -1,9 +1,7 @@
-
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import Header from "@/components/Header";
 import TerminalIntro from "@/components/TerminalIntro";
-import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -42,7 +40,6 @@ const Index = () => {
               <TerminalIntro />
             </div>
           </section>
-          <AboutSection />
           <SkillsSection />
           <ExperienceTimeline />
           <ProjectsSection />

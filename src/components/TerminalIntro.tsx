@@ -6,11 +6,22 @@ const textLines = [
   "> Currently leading 2 dev teams @ Parallax Technologies."
 ];
 
+const aboutText = [
+  "Skilled and self-motivated Software Engineer with nearly 3 years of experience in designing and developing robust PHP Laravel-based back-end services and server-side logic. Proficient in Vue.js for dynamic front-end interfaces and Flutter for cross-platform mobile applications. Currently leading two teams of junior developers at Parallax Technologies (Pvt) Ltd, delivering high-quality, user-centric software solutions.",
+  "",
+  "Experienced in integrating third-party APIs, conducting performance optimization, and ensuring responsive design across web and mobile platforms. Strong in software debugging and producing clean, maintainable code with proper documentation.",
+  "",
+  "Demonstrates strong collaboration and teamwork, with proven adaptability in fast-paced environments. Recognized for attention to detail, effective time management, and problem-solving. Actively involved in code reviews, mentoring, and technical hiring processes.",
+  "",
+  "Currently expanding expertise in DevOps practices and prompt engineering to strengthen automation of developments, scalability, and AI-driven development workflows."
+];
+
 const TerminalIntro: React.FC = () => {
   const [displayed, setDisplayed] = useState<string[]>(["", ""]);
   const [cursor, setCursor] = useState(true);
   const lineIdxRef = useRef(0);
   const charIdxRef = useRef(0);
+  const [typingDone, setTypingDone] = useState(false);
 
   useEffect(() => {
     const typeLine = () => {
@@ -30,6 +41,8 @@ const TerminalIntro: React.FC = () => {
           charIdxRef.current = 0;
           setTimeout(typeLine, 540);
         }
+      } else {
+        setTypingDone(true);
       }
     };
     typeLine();
@@ -55,13 +68,21 @@ const TerminalIntro: React.FC = () => {
           {displayed.map((line, idx) => (
             <div key={idx} className="flex">
               <span>{line}</span>
-              {idx === lineIdxRef.current && cursor && <span className="ml-1 text-accent animate-blink">|</span>}
+              {idx === lineIdxRef.current && cursor && !typingDone && <span className="ml-1 text-accent animate-blink">|</span>}
             </div>
           ))}
         </div>
+        {typingDone && (
+          <div className="mt-4 text-secondary text-[1rem] leading-relaxed space-y-3">
+            {aboutText.map((p, i) =>
+              p ? <p key={i}>{p}</p> : <div key={i} className="h-2" />
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default TerminalIntro;
+
