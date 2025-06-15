@@ -40,7 +40,9 @@ const Index = () => {
           <section className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-8 pt-4 pb-12 md:pt-10 md:pb-4 px-4">
             {/* REMOVED: Avatar/Profile Picture */}
             <div className="flex-1 flex flex-col items-center md:items-start md:pl-6 w-full">
-              <TerminalIntro />
+              <div className="flex justify-center w-full">
+                <TerminalIntro />
+              </div>
             </div>
           </section>
           <SkillsSection />
