@@ -1,5 +1,5 @@
 
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Copy } from "lucide-react";
 
 const contact = {
@@ -12,7 +12,6 @@ const contact = {
 
 const ContactSection = () => {
   const [copied, setCopied] = useState("");
-  const msgRef = useRef<HTMLInputElement | null>(null);
 
   function handleCopy(text: string) {
     navigator.clipboard.writeText(text);
@@ -22,7 +21,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="mb-10 my-14 w-full max-w-3xl mx-auto">
-      <h2 className="text-xl md:text-2xl font-bold text-accent font-mono mb-3 flex items-center gap-2">{"## 📫 Contact"}</h2>
+      <h2 className="text-xl md:text-2xl font-bold text-accent font-mono mb-3 flex items-center justify-center gap-2 text-center">{"## 📫 Contact"}</h2>
       <div className="bg-terminal rounded-lg border border-[#222] p-6 shadow-lg font-mono text-[1rem] text-foreground">
         <form
           className="flex flex-col gap-4"
@@ -46,7 +45,6 @@ const ContactSection = () => {
             />
           </div>
           <textarea
-            ref={msgRef}
             name="Message"
             placeholder="Message"
             className="bg-[#141616] p-2 rounded text-foreground border border-[#1b1b1b] focus:border-accent outline-none font-mono min-h-[70px]"

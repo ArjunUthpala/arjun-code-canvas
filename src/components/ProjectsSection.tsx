@@ -86,7 +86,7 @@ const projectList = [
 
 const ProjectsSection = () => (
   <section id="projects" className="my-12 md:my-20 w-full max-w-5xl mx-auto">
-    <h2 className="text-xl md:text-2xl font-bold text-accent font-mono mb-3 flex items-center gap-2">
+    <h2 className="text-xl md:text-2xl font-bold text-accent font-mono mb-3 flex items-center justify-center gap-2 text-center">
       <span>{"// Projects"}</span>
     </h2>
     <div className="grid md:grid-cols-2 gap-7">

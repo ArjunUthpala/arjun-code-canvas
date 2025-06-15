@@ -64,7 +64,7 @@ const prettyJson = JSON.stringify(skills, null, 2);
 const SkillsSection = () => {
   return (
     <section id="skills" className="my-12 md:my-20 w-full max-w-3xl mx-auto">
-      <h2 className="text-xl md:text-2xl font-bold text-accent font-mono mb-3 flex items-center gap-2">
+      <h2 className="text-xl md:text-2xl font-bold text-accent font-mono mb-3 flex items-center justify-center gap-2 text-center">
         <span>{'{ Skills }'}</span>
       </h2>
       <div className="bg-terminal border border-[#222] rounded-lg shadow-lg p-6 md:p-8">

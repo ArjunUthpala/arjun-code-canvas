@@ -34,7 +34,7 @@ const ExperienceTimeline = () => {
   const [openIdx, setOpenIdx] = useState(0);
   return (
     <section id="experience" className="my-12 md:my-20 w-full max-w-3xl mx-auto">
-      <h2 className="text-xl md:text-2xl font-bold text-accent font-mono mb-3 flex items-center gap-2">{"## 💼 Experience"}</h2>
+      <h2 className="text-xl md:text-2xl font-bold text-accent font-mono mb-3 flex items-center justify-center gap-2 text-center">{"## 💼 Experience"}</h2>
       <div className="flex flex-col">
         {experiences.map((exp, idx) => (
           <div key={exp.title}
