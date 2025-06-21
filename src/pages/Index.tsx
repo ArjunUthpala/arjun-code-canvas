@@ -21,13 +21,13 @@ const bashBlocks = [
 const Index = () => {
   return (
     <SidebarProvider>
-      <div className="min-h-screen flex w-full">
+      <div className="min-h-screen flex w-full overflow-x-hidden">
         {/* Sidebar */}
         <div className="hidden md:block">
           <AppSidebar />
         </div>
         {/* Main Content Area */}
-        <div className="flex flex-col flex-1 min-w-0">
+        <div className="flex flex-col flex-1 min-w-0 w-full">
           <Header />
           {/* SidebarTrigger (shows on mobile screens for sidebar toggle) */}
           <div className="md:hidden p-2">
@@ -45,31 +45,41 @@ const Index = () => {
             <ContactDetails />
           </div>
           {/* 1st BashBlock after contact details */}
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full px-4">
             <BashBlock>{bashBlocks[0]}</BashBlock>
           </div>
           {/* Skills Section */}
-          <SkillsSection />
+          <div className="px-4">
+            <SkillsSection />
+          </div>
           {/* 2nd BashBlock after skills */}
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full px-4">
             <BashBlock>{bashBlocks[1]}</BashBlock>
           </div>
           {/* Experience */}
-          <ExperienceTimeline />
+          <div className="px-4">
+            <ExperienceTimeline />
+          </div>
           {/* 3rd BashBlock after experience */}
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full px-4">
             <BashBlock>{bashBlocks[2]}</BashBlock>
           </div>
           {/* Projects */}
-          <ProjectsSection />
+          <div className="px-4">
+            <ProjectsSection />
+          </div>
           {/* 4th BashBlock after projects */}
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full px-4">
             <BashBlock>{bashBlocks[3]}</BashBlock>
           </div>
-          <EducationSection />
-          <AchievementsBlock />
+          <div className="px-4">
+            <EducationSection />
+          </div>
+          <div className="px-4">
+            <AchievementsBlock />
+          </div>
           {/* Footer */}
-          <footer className="py-6 text-center text-md text-secondary font-mono">
+          <footer className="py-6 text-center text-md text-secondary font-mono px-4">
             Built with <span className="text-accent">React</span> + <span className="text-accent">Tailwind CSS</span> · &copy; {new Date().getFullYear()} Arjun Uthpala
           </footer>
         </div>
