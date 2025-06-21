@@ -1,4 +1,3 @@
-
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import Header from "@/components/Header";
@@ -8,14 +7,16 @@ import ProjectsSection from "@/components/ProjectsSection";
 import EducationSection from "@/components/EducationSection";
 import AchievementsBlock from "@/components/AchievementsBlock";
 import ContactDetails from "@/components/ContactDetails";
+import AboutSection from "@/components/AboutSection";
 import BashBlock from "@/components/BashBlock";
+import WhatsAppContact from "@/components/WhatsAppContact";
 
 // The 4 about points, separated for clarity
 const bashBlocks = [
   "Skilled and self-motivated Software Engineer with nearly 3 years of experience in designing and developing robust PHP Laravel-based back-end services and server-side logic. Proficient in Vue.js for dynamic front-end interfaces and Flutter for cross-platform mobile applications. Currently leading two teams of junior developers at Parallax Technologies (Pvt) Ltd, delivering high-quality, user-centric software solutions.",
   "Experienced in integrating third-party APIs, conducting performance optimization, and ensuring responsive design across web and mobile platforms. Strong in software debugging and producing clean, maintainable code with proper documentation.",
   "Demonstrates strong collaboration and teamwork, with proven adaptability in fast-paced environments. Recognized for attention to detail, effective time management, and problem-solving. Actively involved in code reviews, mentoring, and technical hiring processes.",
-  "Currently expanding expertise in DevOps practices and prompt engineering to strengthen automation of developments, scalability, and AI-driven development workflows."
+  "Currently expanding expertise in DevOps practices and prompt engineering to strengthen automation of developments, scalability, and AI-driven development workflows.",
 ];
 
 const Index = () => {
@@ -42,7 +43,9 @@ const Index = () => {
               Software Engineer
             </span>
             {/* Contact details at top */}
-            <ContactDetails />
+            <div id="contact">
+              <ContactDetails />
+            </div>
           </div>
           {/* 1st BashBlock after contact details */}
           <div className="flex justify-center w-full px-4">
@@ -78,9 +81,15 @@ const Index = () => {
           <div className="px-4">
             <AchievementsBlock />
           </div>
+          {/* WhatsApp Contact Section */}
+          <div className="px-4 py-8">
+            <WhatsAppContact />
+          </div>
           {/* Footer */}
           <footer className="py-6 text-center text-md text-secondary font-mono px-4">
-            Built with <span className="text-accent">React</span> + <span className="text-accent">Tailwind CSS</span> · &copy; {new Date().getFullYear()} Arjun Uthpala
+            Built with <span className="text-accent">React</span> +{" "}
+            <span className="text-accent">Tailwind CSS</span> · &copy;{" "}
+            {new Date().getFullYear()} Arjun Uthpala
           </footer>
         </div>
       </div>
