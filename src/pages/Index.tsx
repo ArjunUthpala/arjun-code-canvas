@@ -29,6 +29,8 @@ const Index = () => {
         </div>
         {/* Main Content Area */}
         <div className="flex flex-col flex-1 min-w-0 w-full">
+          {/* SEO Main Heading */}
+          <h1 className="sr-only">Arjun Uthpala – Full Stack Software Engineer & Developer Portfolio</h1>
           <Header />
           {/* SidebarTrigger (shows on mobile screens for sidebar toggle) */}
           <div className="md:hidden p-2">
