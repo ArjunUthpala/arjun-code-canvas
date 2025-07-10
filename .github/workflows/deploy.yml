@@ -3,7 +3,7 @@ name: Deploy Vite React to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [feat/seo]
   workflow_dispatch:
 
 permissions:
