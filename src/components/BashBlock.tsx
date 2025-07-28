@@ -1,5 +1,6 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { useScrollAnimation } from "@/hooks/useAnime";
 
 interface BashBlockProps {
   children: React.ReactNode;
@@ -7,15 +8,25 @@ interface BashBlockProps {
 
 const BashBlock: React.FC<BashBlockProps> = ({ children }) => {
   const [cursor, setCursor] = useState(true);
+  const bashRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const blink = setInterval(() => setCursor((v) => !v), 500);
     return () => clearInterval(blink);
   }, []);
 
+  useScrollAnimation('.bash-block', {
+    opacity: [0, 1],
+    translateY: [30, 0],
+    scale: [0.95, 1],
+    duration: 800,
+    easing: 'easeOutCubic'
+  });
+
   return (
     <div
-      className="font-mono bg-terminal rounded-lg p-4 md:p-6 shadow-lg border-2 border-white w-full max-w-3xl min-h-[88px] animate-fade-in mx-auto mb-4 transition-transform duration-200 hover:scale-[1.022] hover:shadow-[0_0_24px_2px_rgba(255,255,255,0.16)] hover:border-[#fff]"
+      ref={bashRef}
+      className="bash-block font-mono bg-terminal rounded-lg p-4 md:p-6 shadow-lg border-2 border-white w-full max-w-3xl min-h-[88px] mx-auto mb-4 transition-transform duration-200 hover:scale-[1.022] hover:shadow-[0_0_24px_2px_rgba(255,255,255,0.16)] hover:border-[#fff] opacity-0"
       style={{
         boxShadow: "0 6px 30px 0 #0002, 0 0 0 3px #fff0",
       }}

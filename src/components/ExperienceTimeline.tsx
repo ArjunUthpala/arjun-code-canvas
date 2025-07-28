@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useScrollAnimation, useStaggerAnimation } from "@/hooks/useAnime";
 const experiences = [
   {
     title: "Software Engineer — Parallax Technologies",
@@ -31,6 +32,20 @@ const experiences = [
 
 const ExperienceTimeline = () => {
   const [openIdx, setOpenIdx] = useState(0);
+
+  useScrollAnimation('#experience h2', {
+    opacity: [0, 1],
+    translateY: [-20, 0],
+    duration: 600,
+    easing: 'easeOutQuad'
+  });
+
+  useStaggerAnimation('.experience-card', {
+    opacity: [0, 1],
+    translateY: [30, 0],
+    duration: 600,
+    easing: 'easeOutCubic'
+  }, 200);
   return (
     <section id="experience" className="my-8 md:my-12 w-full max-w-3xl mx-auto">
       <h2 className="text-xl md:text-2xl font-bold text-accent font-mono mb-3 flex items-center justify-center gap-2 text-center">
@@ -40,7 +55,7 @@ const ExperienceTimeline = () => {
         {experiences.map((exp, idx) => (
           <div
             key={exp.title}
-            className={`group bg-terminal rounded-lg border border-[#222] mb-4 shadow-lg overflow-hidden transition-all duration-300`}
+            className={`experience-card group bg-terminal rounded-lg border border-[#222] mb-4 shadow-lg overflow-hidden transition-all duration-300 opacity-0`}
           >
             <button
               onClick={() => setOpenIdx(idx === openIdx ? -1 : idx)}

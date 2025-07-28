@@ -1,5 +1,6 @@
 
 import React from "react";
+import { useScrollAnimation, useStaggerAnimation } from "@/hooks/useAnime";
 
 const projectList = [
   {
@@ -84,7 +85,23 @@ const projectList = [
   },
   ];
 
-const ProjectsSection = () => (
+const ProjectsSection = () => {
+  useScrollAnimation('#projects h2', {
+    opacity: [0, 1],
+    translateY: [-20, 0],
+    duration: 600,
+    easing: 'easeOutQuad'
+  });
+
+  useStaggerAnimation('.project-card', {
+    opacity: [0, 1],
+    translateY: [40, 0],
+    scale: [0.95, 1],
+    duration: 700,
+    easing: 'easeOutCubic'
+  }, 150);
+
+  return (
   <section id="projects" className="my-12 md:my-20 w-full max-w-5xl mx-auto">
     <h2 className="text-xl md:text-2xl font-bold text-accent font-mono mb-3 flex items-center justify-center gap-2 text-center">
       <span>{"// Projects"}</span>
@@ -93,7 +110,7 @@ const ProjectsSection = () => (
       {projectList.map((proj, i) => (
         <div
           key={proj.name}
-          className="group bg-terminal rounded-lg border border-[#222] hover:border-accent shadow-lg p-6 pb-5 flex flex-col gap-4 cursor-pointer transition duration-200 hover:shadow-2xl"
+          className="project-card group bg-terminal rounded-lg border border-[#222] hover:border-accent shadow-lg p-6 pb-5 flex flex-col gap-4 cursor-pointer transition duration-200 hover:shadow-2xl opacity-0"
         >
           <div className="flex items-baseline gap-3">
             <span className="font-mono text-accent text-lg font-bold">{proj.name}</span>
@@ -128,5 +145,6 @@ const ProjectsSection = () => (
     </div>
   </section>
 );
+};
 
 export default ProjectsSection;

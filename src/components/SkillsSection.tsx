@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SkillRow from "./SkillRow";
+import { useScrollAnimation, useStaggerAnimation } from "@/hooks/useAnime";
 
 const skills = {
   "Soft Skills": [
@@ -65,6 +66,20 @@ const SkillsSection = () => {
   const otherSkills = skillEntries.filter(([group]) => group !== "Hard Skills");
   const hardSkills = skillEntries.find(([group]) => group === "Hard Skills");
 
+  useScrollAnimation('#skills h2', {
+    opacity: [0, 1],
+    translateY: [-20, 0],
+    duration: 600,
+    easing: 'easeOutQuad'
+  });
+
+  useStaggerAnimation('.skill-row', {
+    opacity: [0, 1],
+    translateX: [-50, 0],
+    duration: 500,
+    easing: 'easeOutCubic'
+  }, 150);
+
   return (
     <section id="skills" className="my-7 md:my-12 w-full max-w-3xl mx-auto">
       <h2 className="text-xl md:text-2xl font-bold text-accent font-mono mb-4 flex items-center justify-center gap-2 text-center">
@@ -72,11 +87,13 @@ const SkillsSection = () => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10">
         {otherSkills.map(([group, arr]) => (
-          <SkillRow key={group} group={group} skills={arr} />
+          <div key={group} className="skill-row opacity-0">
+            <SkillRow group={group} skills={arr} />
+          </div>
         ))}
       </div>
       {hardSkills && (
-        <div className="mt-2">
+        <div className="mt-2 skill-row opacity-0">
           <SkillRow group={hardSkills[0]} skills={hardSkills[1]} />
         </div>
       )}

@@ -10,6 +10,7 @@ import ContactDetails from "@/components/ContactDetails";
 import AboutSection from "@/components/AboutSection";
 import BashBlock from "@/components/BashBlock";
 import WhatsAppContact from "@/components/WhatsAppContact";
+import { useScrollAnimation } from "@/hooks/useAnime";
 
 // The 4 about points, separated for clarity
 const bashBlocks = [
@@ -20,6 +21,20 @@ const bashBlocks = [
 ];
 
 const Index = () => {
+  useScrollAnimation('.main-name', {
+    opacity: [0, 1],
+    translateY: [30, 0],
+    duration: 1000,
+    easing: 'easeOutCubic'
+  });
+
+  useScrollAnimation('.main-role', {
+    opacity: [0, 1],
+    translateY: [20, 0],
+    duration: 800,
+    delay: 200,
+    easing: 'easeOutCubic'
+  });
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full overflow-x-hidden">
@@ -38,10 +53,10 @@ const Index = () => {
           </div>
           {/* Name/Role moved below header */}
           <div className="w-full max-w-6xl mx-auto flex flex-col items-center mt-6 md:mt-10 mb-2 md:mb-4 px-4">
-            <span className="text-center text-2xl md:text-3xl font-bold text-accent tracking-wider font-mono">
+            <span className="main-name text-center text-2xl md:text-3xl font-bold text-accent tracking-wider font-mono opacity-0">
               Arjun Uthpala
             </span>
-            <span className="text-center text-secondary text-lg font-mono">
+            <span className="main-role text-center text-secondary text-lg font-mono opacity-0">
               Software Engineer
             </span>
             {/* Contact details at top */}
