@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-const anime = require('animejs');
+import * as anime from 'animejs';
 
 export const useAnime = (config: any, deps: any[] = []) => {
   const animationRef = useRef<any>(null);
@@ -9,7 +9,7 @@ export const useAnime = (config: any, deps: any[] = []) => {
       animationRef.current.pause();
     }
     
-    animationRef.current = anime(config);
+    animationRef.current = (anime as any).default(config);
     
     return () => {
       if (animationRef.current) {
@@ -33,7 +33,7 @@ export const useScrollAnimation = (
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            anime({
+            (anime as any).default({
               targets: entry.target,
               ...config,
             });
@@ -62,9 +62,9 @@ export const useStaggerAnimation = (
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            anime({
+            (anime as any).default({
               targets: entry.target,
-              delay: anime.stagger(delay),
+              delay: (anime as any).default.stagger(delay),
               ...config,
             });
             observer.unobserve(entry.target);
